@@ -1,0 +1,1 @@
+reading from std output 
