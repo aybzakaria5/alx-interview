@@ -1,29 +1,29 @@
 #!/usr/bin/node
 
-const request = require('request');
-const id = process.argv[2];
+const request = require('request-promise');
+const Id = process.argv[2];
+const url = `https://swapi-api.alx-tools.com/api/films/${Id}`;
 
-const findMovie = (id) => {
-  const url = `https://swapi-api.alx-tools.com/api/films/${id}`;
-
-  request(url, (error, response, body) => {
-    if (error) {
-      console.error('Error:', error);
-      return;
-    }
-    const data = JSON.parse(body);
-    const charactersLinks = data.characters;
-    for (const link of charactersLinks) {
-      request(link, (err, res, body) => {
-        if (err) {
-          console.error('Error:', err);
-          return;
+const GetMovie = async (url) => {
+    try {
+        const body = await request(url);
+        const Data = JSON.parse(body);
+        const charactersUrl = Data.characters;
+        
+        for (let i = 0; i < charactersUrl.length; i++) {
+            const urlChar = charactersUrl[i];
+            try {
+                const charBody = await request(urlChar);
+                const charsData = JSON.parse(charBody);
+                console.log(charsData.name);
+            } catch (err) {
+                console.error('Error in chars:', err);
+            }
         }
-        const characterData = JSON.parse(body);
-        return characterData.name;
-      });
+    } catch (error) {
+        console.error('Error:', error);
     }
-  });
 };
 
-findMovie(id);
+GetMovie(url);
+
