@@ -2,7 +2,7 @@
 """Change making module.
 """
 
-def find_minimum_coins(coin_values, target_amount):
+def makeChange(coins, total)
     """Finds the minimum number of coins needed to achieve a given total.
 
     Args:
