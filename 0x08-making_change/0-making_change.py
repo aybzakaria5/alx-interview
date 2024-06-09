@@ -2,7 +2,8 @@
 """Change making module.
 """
 
-def makeChange(coins, total)
+
+def makeChange(coins, total):
     """Finds the minimum number of coins needed to achieve a given total.
 
     Args:
@@ -13,12 +14,13 @@ def makeChange(coins, total)
         int: The minimum number of coins needed to reach the total,
              or -1 if it's not possible.
     """
-    if target_amount <= 0:
+    if total <= 0:
         return 0
 
-    # Sort coin values in descending order to start with the largest denominations
-    sorted_coin_values = sorted(coin_values, reverse=True)
-    remaining_amount = target_amount
+    # Sort coin values in descending order to start
+    # with the largest denominations
+    sorted_coin_values = sorted(coin, reverse=True)
+    remaining_amount = total
     total_coins = 0
 
     for coin in sorted_coin_values:
@@ -28,7 +30,8 @@ def makeChange(coins, total)
         if remaining_amount == 0:
             break
 
-    # If loop exits and there is remaining amount, we cannot meet the target amount
+    # If loop exits and there is remaining amount
+    # we cannot meet the target amount
     if remaining_amount > 0:
         return -1
 
