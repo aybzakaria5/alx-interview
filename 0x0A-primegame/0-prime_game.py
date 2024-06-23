@@ -11,6 +11,7 @@ def sieve_of_eratosthenes(max_num):
         p += 1
     return is_prime
 
+
 def prime_game(n, primes):
     remaining = list(range(n + 1))
     move = 0  # 0 for Maria, 1 for Ben
@@ -26,6 +27,7 @@ def prime_game(n, primes):
         if not made_move:
             break
     return "Ben" if move == 0 else "Maria"
+
 
 def isWinner(x, nums):
     max_num = max(nums)
@@ -44,4 +46,3 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return None
-
