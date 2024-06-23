@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ Prime Game """
+
+
 def sieve_of_eratosthenes(max_num):
     """ Sieve of Eratosthenes"""
     is_prime = [True] * (max_num + 1)
