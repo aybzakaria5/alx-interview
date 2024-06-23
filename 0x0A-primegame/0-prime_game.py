@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-
+""" Prime Game """
 def sieve_of_eratosthenes(max_num):
+    """ Sieve of Eratosthenes"""
     is_prime = [True] * (max_num + 1)
     is_prime[0] = is_prime[1] = False
     p = 2
@@ -13,6 +14,7 @@ def sieve_of_eratosthenes(max_num):
 
 
 def prime_game(n, primes):
+    """ Prime Game"""
     remaining = list(range(n + 1))
     move = 0  # 0 for Maria, 1 for Ben
     while True:
@@ -30,6 +32,7 @@ def prime_game(n, primes):
 
 
 def isWinner(x, nums):
+    """ Prime Game"""
     max_num = max(nums)
     primes = sieve_of_eratosthenes(max_num)
     maria_wins = 0
